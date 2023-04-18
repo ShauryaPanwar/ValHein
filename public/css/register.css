@@ -16,6 +16,22 @@ body{
     left: 50%;
     top: 50%;
 }
+
+
+.controls {
+    display: flex;
+    margin-top: 15px;
+
+}
+  
+.radio {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: 50px;
+}
 .background .shape{
     height: 200px;
     width: 200px;
@@ -40,7 +56,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: 600px;
+    height: 640px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -87,7 +103,7 @@ input{
 ::placeholder{
     color: #e5e5e5;
 }
-button{
+#sub-but{
     margin-top: 50px;
     width: 100%;
     background-color: #ffffff;

@@ -16,21 +16,28 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form>
+    <form action="/register" method="POST">
         <h3>Sign Up Here</h3>
 
         <label for="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username">
+        <input name="name" required type="text" placeholder="Name" id="username">
 
         <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password">
+        <input name="pass"  type="password" placeholder="Password" id="password">
 
         <label for="password">Re-enter Password</label>
-        <input type="password" placeholder="Password" id="password">
+        <input name="confirmpass"  type="password" placeholder="Password" id="password">
+   
 
-        <button>Log In</button>
+    <span class="controls">
+      <input type="radio" name="gender" class="radio" id="female"  value="female">
+      <label for="female">Female</label>
+      <input type="radio" name="gender" class="radio" id="male"  value="male"
+             checked>
+      <label for="male">Male</label>
+    </span>
+        <input name="submit" type="submit" id="sub-but" value="register">
         <div class="social">
-          
         </div>
     </form>
 </body>
