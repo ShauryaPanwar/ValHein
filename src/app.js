@@ -28,6 +28,9 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+
+
+
 app.post("/register", async(req, res) => {
   try {
     const password = req.body.pass;
@@ -44,6 +47,7 @@ app.post("/register", async(req, res) => {
       const registered=await rgisterEmployee.save();
       res.status(201).render("index");
 
+
     }else{
       res.send("password not matching");
     }
@@ -58,3 +62,21 @@ app.listen(port, () =>{
     console.log(`Server is up on port ${port}`);
 });
 
+
+app.post("/login", async(req, res) => {
+    try {
+      const name = req.body.namelog;
+      const pass = req.body.passlog;
+
+      const usname=await Register.findOne({name:name});
+      
+
+      if(usname.pass===pass){
+        res.status(201).render("index");
+      }else{
+        res.send("password not matching");
+      }
+    } catch (error) {
+      res.status(400).send("Username incorrect")
+    } 
+});
