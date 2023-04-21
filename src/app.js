@@ -20,6 +20,10 @@ app.set("views", views_path);
 hbs.registerPartials(partial_path);
 
 
+
+
+
+
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -28,7 +32,12 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-
+app.get("/story", (req, res) => {
+  res.render("story");
+});
+app.get("/home", (req, res) => {
+  res.render("Home");
+});
 
 
 app.post("/register", async(req, res) => {
@@ -80,3 +89,6 @@ app.post("/login", async(req, res) => {
       res.status(400).send("Username incorrect")
     } 
 });
+
+
+
