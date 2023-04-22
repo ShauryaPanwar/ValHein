@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/leaderboard.css">
+    <title>Leaderboard</title>
+</head>
+<body>
+   
+      
+
+
+<div class="area" >
+            <ul class="circles">
+    <div class="heading"><h1>Leaderboard</h1></div>
+
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    {{#each names}}
+  <div class="lead">{{this}} - {{lookup ../time @index}}</div>
+{{/each}}
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+
+
+
+</body>
+</html>

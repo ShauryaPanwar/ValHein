@@ -18,8 +18,11 @@ const UserScheme = new mongoose.Schema({
         type:String,
         required:true
 
+    },
+    time:{
+        type:Number,
     }
- })
+ });
 
 
  const Register=new mongoose.model("Register", UserScheme);

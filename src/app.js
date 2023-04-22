@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 const hbs=require("hbs");
 require("./db/conn")
 const Register=require("./models/register");
+const leader= require("./models/leader")
 const { log } = require("console");
 
 const port=process.env.PORT || 3000;
@@ -21,10 +22,12 @@ app.set("view engine", "hbs");
 app.set("views", views_path);
 hbs.registerPartials(partial_path);
 
-
+let int_time=Infinity;
 let t0;
 let t1;
 let time;
+
+let cookname;
 
 
 app.get("/", (req, res) => {
@@ -45,6 +48,21 @@ app.get("/story", (req, res) => {
   res.render("story");
 });
 
+app.get("/leaderboard",async (req, res) => {
+ try {
+  const result= await leader.find();
+  let kil=result.sort((a, b) => a.time - b.time);
+  // res.send(kil)
+  const names = kil.map(player => player.name);
+  const time=kil.map(player => player.time);
+  
+  res.render("leaderboard", { names: names, time: time });
+
+ } catch (error) {
+  
+ }
+});
+
 app.post("/register", async(req, res) => {
   try {
     const name=req.body.name;
@@ -60,6 +78,7 @@ app.post("/register", async(req, res) => {
       })
 
       const registered=await rgisterEmployee.save();
+      cookname=name
       res.status(201).render("Home");
       t0=performance.now();
     }else{
@@ -81,15 +100,12 @@ app.post("/login", async(req, res) => {
     try {
       const name = req.body.namelog;
       const pass = req.body.passlog;
-
       const usname=await Register.findOne({name:name});
       
-
       if(usname.pass===pass){
+        cookname=name;
         res.status(201).render("Home");
         t0=performance.now();
-        
-      
       }else{
         res.send("password not matching");
       }
@@ -111,7 +127,11 @@ app.post("/story", async(req,res)=>{
       t1=performance.now();
       time=(t1-t0)/1000;
       console.log(time);
-      
+      const led=new leader({
+        name:cookname,
+        time:time
+      })
+      await led.save()
     }else{
       console.log("no");
     }
