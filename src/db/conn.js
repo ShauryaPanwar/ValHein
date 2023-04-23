@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://127.0.0.1:27017/Game_Register",{
+mongoose.connect("mongodb+srv://root2:Shaurya%4022may@cluster0.j1ucfh7.mongodb.net/Game_Register",{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     
@@ -8,5 +8,10 @@ mongoose.connect("mongodb://127.0.0.1:27017/Game_Register",{
 }).catch((e) => {
     console.log(e);
 })
+
+
+
+
+
 
 
