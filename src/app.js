@@ -84,7 +84,7 @@ app.post("/register", async(req, res) => {
       res.send("password not matching");
     }
   } catch (error) {
-    res.status(400).send(error);
+    res.status(400).send("Home");
     
   }
 });
