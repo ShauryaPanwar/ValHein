@@ -49,6 +49,14 @@ Build command is
   npm install
 ```
     
+    
+    
+## Clues
+
+clues are hidden throughout the story leading to passcode which is 17 19 23 5 71
+user can also follow wrong clues and meet themself in a dead end.
+
+    
 ## Authors
 
 - [@ShauryaPanwar](https://github.com/ShauryaPanwar)
