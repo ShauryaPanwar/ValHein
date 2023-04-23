@@ -51,6 +51,23 @@ app.get("/story3", (req, res) => {
   res.render("story3");
 });
 
+app.get("/adminlogin", (req, res) => {
+  res.render("adminlogin");
+});
+app.get("/admin",async (req, res) => {
+  try {
+    const result= await leader.find();
+    let kil=result.sort((a, b) => a.time - b.time);
+    // res.send(kil)
+    const names = kil.map(player => player.name);
+    const time=kil.map(player => player.time);
+    res.render("admin", { names: names, time: time });
+  
+   } catch (error) {
+    
+   }
+});
+
 app.get("/leaderboard",async (req, res) => {
  try {
   const result= await leader.find();
@@ -152,3 +169,17 @@ app.post("/story", async(req,res)=>{
 //   }
 // })
 
+app.post("/adminlogin",async(req,res)=>{
+  try {
+    const name=req.body.usname;
+    const pass=req.body.password;
+    if(name==="admin" && pass==="admin"){
+      res.redirect("admin")
+    }else{
+      res.send("Invalid Username/password")
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+})
