@@ -1,9 +1,8 @@
 const express = require("express");
 const app = express();
-const path = require("path");
-var cookieParser = require('cookie-parser');  
+const path = require("path");  
 const hbs=require("hbs");
-require("./db/conn")
+require("./db/conn");
 const Register=require("./models/register");
 const leader= require("./models/leader")
 const { log } = require("console");
@@ -78,7 +77,7 @@ app.post("/register", async(req, res) => {
       })
 
       const registered=await rgisterEmployee.save();
-      cookname=name
+      cookname=name;
       res.status(201).render("Home");
       t0=performance.now();
     }else{
