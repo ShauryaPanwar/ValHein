@@ -78,9 +78,8 @@ app.post("/register", async(req, res) => {
 
       const registered=await rgisterEmployee.save();
       cookname=name;
-      console.log(res.status());
-      res.status(201).render("Home");
       t0=performance.now();
+      res.status(201).render("Home");
     }else{
       res.send("password not matching");
     }
@@ -104,8 +103,8 @@ app.post("/login", async(req, res) => {
       
       if(usname.pass===pass){
         cookname=name;
-        res.status(201).render("Home");
         t0=performance.now();
+        res.status(201).render("Home");
       }else{
         res.send("password not matching");
       }
