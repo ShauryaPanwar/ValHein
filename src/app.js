@@ -84,7 +84,7 @@ app.post("/register", async(req, res) => {
       res.send("password not matching");
     }
   } catch (error) {
-    res.status(400).send("Home");
+    res.status(400).send(error);
     
   }
 });
@@ -102,8 +102,8 @@ app.post("/login", async(req, res) => {
       const usname=await Register.findOne({name:name});
       
       if(usname.pass===pass){
-        cookname=name;
-        t0=performance.now();
+        // cookname=name;
+        // t0=performance.now();
         res.status(201).render("Home");
       }else{
         res.send("password not matching");
