@@ -77,8 +77,8 @@ app.post("/register", async(req, res) => {
       })
 
       const registered=await rgisterEmployee.save();
-      cookname=name;
-      t0=performance.now();
+      // cookname=name;
+      // t0=performance.now();
       res.status(201).render("Home");
     }else{
       res.send("password not matching");
