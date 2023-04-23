@@ -173,7 +173,7 @@ app.post("/adminlogin",async(req,res)=>{
   try {
     const name=req.body.usname;
     const pass=req.body.password;
-    if(name==="admin" && pass==="admin"){
+    if(name==="admin@gmail.com" && pass==="admin"){
       res.redirect("admin")
     }else{
       res.send("Invalid Username/password")
