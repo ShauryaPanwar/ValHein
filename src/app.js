@@ -78,6 +78,7 @@ app.post("/register", async(req, res) => {
 
       const registered=await rgisterEmployee.save();
       cookname=name;
+      console.log(res.status());
       res.status(201).render("Home");
       t0=performance.now();
     }else{
