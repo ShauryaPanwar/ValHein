@@ -47,6 +47,10 @@ app.get("/story", (req, res) => {
   res.render("story");
 });
 
+app.get("/story3", (req, res) => {
+  res.render("story3");
+});
+
 app.get("/leaderboard",async (req, res) => {
  try {
   const result= await leader.find();
@@ -123,14 +127,15 @@ app.post("/story", async(req,res)=>{
     
     if(inp1==17 && inp2==19 && inp3==23 && inp4==5 && inp5==71){
       console.log("Done lessgo");
-      t1=performance.now();
-      time=(t1-t0)/1000;
-      console.log(time);
-      const led=new leader({
-        name:cookname,
-        time:time
-      })
-      await led.save()
+      // t1=performance.now();
+      // time=(t1-t0)/1000;
+      // console.log(time);
+      // const led=new leader({
+      //   name:cookname,
+      //   time:time
+      // })
+      // await led.save()
+      res.redirect("story3")
     }else{
       console.log("no");
     }
@@ -138,4 +143,12 @@ app.post("/story", async(req,res)=>{
     res.status(400).send(error);
   }
 })
+
+// app.post("/story3", async(req,res)=>{
+//   try {
+    
+//   } catch (error) {
+//     res.status(400).send(error)
+//   }
+// })
 
