@@ -38,6 +38,8 @@ To run the project one have to install following dependencies:
 - mongoose
 - nodemon
 - hbs
+
+
 must be familiar with npm (node package manager).
 Handelbars (hbs) is being used as view engine
 
