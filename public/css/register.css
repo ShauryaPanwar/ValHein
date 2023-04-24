@@ -145,14 +145,14 @@ button {
     border:2px solid white;
     color: #fff;
     text-align: center;
-    font-size: 32px;
+    font-size: 20px;
     padding: 16px;
     width: 220px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 36px;
     box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
-    margin-top: 85vh;
+    
   }
   
   button{
@@ -180,3 +180,8 @@ button {
     opacity: 1;
     right: 10px;
   }
+
+.login{
+  text-align: right;
+  margin-right: 3vw;
+}
